@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ศูนย์ปฏิบัติธรรมแก้วจอมแก่น | คืนความสงบสู่จิตใจ</title>
+  <meta name="description" content="ศูนย์ปฏิบัติธรรมแก้วจอมแก่น สัปปายะสถานสู่ความสงบ ค้นพบแก่นแท้แห่งชีวิต ท่ามกลางอ้อมกอดของธรรมชาติ">
+  <meta property="og:title" content="ศูนย์ปฏิบัติธรรมแก้วจอมแก่น">
+  <meta property="og:description" content="คืนความสงบสู่จิตใจ ค้นพบแก่นแท้แห่งชีวิต">
+  <meta property="og:image" content="https://raw.githubusercontent.com/Purivaro/KMJ/main/images/og-image_1_1.jpg">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script>
@@ -18,6 +22,8 @@
             cream: '#FAFAF7',
             bark: '#3D3228',
             'bark-light': '#6B5D50',
+            gold: '#C5A572',
+            'gold-muted': '#D4C4A0',
           }
         }
       }
@@ -26,19 +32,64 @@
   <style>
     body { font-family: 'Noto Sans Thai', sans-serif; }
     html { scroll-behavior: smooth; }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
     .fade-up { animation: fadeUp 0.9s ease-out forwards; opacity: 0; }
-    .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.25s; } .d3 { animation-delay: 0.4s; } .d4 { animation-delay: 0.55s; }
+    .fade-in { animation: fadeIn 1.2s ease-out forwards; opacity: 0; }
+    .scale-in { animation: scaleIn 0.8s ease-out forwards; opacity: 0; }
+    .d1 { animation-delay: 0.1s; }
+    .d2 { animation-delay: 0.25s; }
+    .d3 { animation-delay: 0.4s; }
+    .d4 { animation-delay: 0.55s; }
+    .d5 { animation-delay: 0.7s; }
+
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .scroll-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    .mobile-menu.open {
+      max-height: 400px;
+    }
+
+    /* FAQ accordion */
+    details summary::-webkit-details-marker { display: none; }
+    details[open] .faq-icon { transform: rotate(45deg); }
   </style>
 </head>
 <body class="bg-cream text-bark">
 
-  <!-- Hero with real image -->
+  <!-- ========== HERO ========== -->
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <img src="https://raw.githubusercontent.com/Purivaro/KMJ/main/images/og-image_1_1.jpg" alt="ศาลาปฏิบัติธรรม" class="absolute inset-0 w-full h-full object-cover" />
+    <img src="https://raw.githubusercontent.com/Purivaro/KMJ/main/images/og-image_1_1.jpg"
+         alt="ศาลาปฏิบัติธรรม ศูนย์ปฏิบัติธรรมแก้วจอมแก่น"
+         class="absolute inset-0 w-full h-full object-cover" loading="eager" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-cream"></div>
     <div class="relative z-10 text-center px-6 max-w-3xl">
-      <p class="fade-up text-white/60 text-sm tracking-[0.35em] uppercase mb-6">The Pure Heart</p>
+      <p class="fade-up text-gold-muted text-sm tracking-[0.35em] uppercase mb-6">The Pure Heart</p>
       <h1 class="fade-up d1 text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.2]">
         คืนความสงบ<br>สู่จิตใจ
       </h1>
@@ -46,19 +97,27 @@
         ค้นพบแก่นแท้แห่งชีวิต ท่ามกลางอ้อมกอดของธรรมชาติ
       </p>
       <p class="fade-up d3 text-white/50 text-sm mb-10 max-w-lg mx-auto leading-relaxed">
-        ศูนย์ปฏิบัติธรรมแก้วจอมแก่น — สถานที่ซึ่งเวลาเดินช้าลง เพื่อให้คุณได้กลับมาสำรวจโลกภายในจิตใจอีกครั้ง
+        ศูนย์ปฏิบัติธรรมแก้วจอมแก่น — สถานที่ซึ่งเวลาเดินช้าลง<br>
+        เพื่อให้คุณได้กลับมาสำรวจโลกภายในจิตใจอีกครั้ง
       </p>
       <div class="fade-up d4 flex flex-col sm:flex-row gap-4 justify-center">
         <a href="#courses" class="bg-white text-sage-dark font-semibold px-8 py-3.5 rounded-full hover:shadow-xl hover:-translate-y-0.5 transition-all">ดูหลักสูตร</a>
         <a href="#contact" class="border-2 border-white/30 text-white px-8 py-3.5 rounded-full hover:bg-white/10 transition-all">ติดต่อเรา</a>
       </div>
     </div>
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 fade-up d5">
+      <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
+        <div class="w-1 h-3 bg-white/50 rounded-full animate-bounce"></div>
+      </div>
+    </div>
   </section>
 
-  <!-- Nav -->
-  <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-sage/10">
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-sage/10">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#" class="font-bold text-sage-dark">แก้วจอมแก่น</a>
+      <a href="#" class="font-bold text-sage-dark text-lg">แก้วจอมแก่น</a>
+      <!-- Desktop links -->
       <div class="hidden md:flex items-center gap-8 text-sm text-bark-light">
         <a href="#concept" class="hover:text-sage-dark transition-colors">คอนเซปต์</a>
         <a href="#courses" class="hover:text-sage-dark transition-colors">หลักสูตร</a>
@@ -68,13 +127,31 @@
         <a href="#faq" class="hover:text-sage-dark transition-colors">FAQ</a>
         <a href="#contact" class="bg-sage text-white px-5 py-2 rounded-full hover:bg-sage-dark transition-colors">ติดต่อ</a>
       </div>
+      <!-- Mobile hamburger -->
+      <button onclick="document.getElementById('mobileMenu').classList.toggle('open')" class="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5">
+        <span class="w-6 h-0.5 bg-bark"></span>
+        <span class="w-6 h-0.5 bg-bark"></span>
+        <span class="w-6 h-0.5 bg-bark"></span>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="mobile-menu md:hidden bg-white border-t border-sage/10">
+      <div class="px-6 py-4 space-y-3 text-sm">
+        <a href="#concept" class="block py-2 text-bark-light hover:text-sage-dark" onclick="document.getElementById('mobileMenu').classList.remove('open')">คอนเซปต์</a>
+        <a href="#courses" class="block py-2 text-bark-light hover:text-sage-dark" onclick="document.getElementById('mobileMenu').classList.remove('open')">หลักสูตร</a>
+        <a href="#teacher" class="block py-2 text-bark-light hover:text-sage-dark" onclick="document.getElementById('mobileMenu').classList.remove('open')">พระอาจารย์</a>
+        <a href="#schedule" class="block py-2 text-bark-light hover:text-sage-dark" onclick="document.getElementById('mobileMenu').classList.remove('open')">กิจวัตร</a>
+        <a href="#facilities" class="block py-2 text-bark-light hover:text-sage-dark" onclick="document.getElementById('mobileMenu').classList.remove('open')">สถานที่</a>
+        <a href="#faq" class="block py-2 text-bark-light hover:text-sage-dark" onclick="document.getElementById('mobileMenu').classList.remove('open')">FAQ</a>
+        <a href="#contact" class="block py-2 bg-sage text-white px-4 rounded-full text-center" onclick="document.getElementById('mobileMenu').classList.remove('open')">ติดต่อ</a>
+      </div>
     </div>
   </nav>
 
-  <!-- Welcome -->
+  <!-- ========== WELCOME ========== -->
   <section class="py-24 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <p class="text-sage-dark font-medium mb-4">ยินดีต้อนรับ</p>
+    <div class="max-w-3xl mx-auto text-center scroll-fade">
+      <p class="text-sage-dark font-medium mb-4 tracking-wide">ยินดีต้อนรับ</p>
       <h2 class="text-3xl md:text-4xl font-bold mb-8 leading-snug">ศูนย์ปฏิบัติธรรมแก้วจอมแก่น</h2>
       <p class="text-bark-light/70 text-lg leading-relaxed">
         สถานที่ซึ่งเวลาเดินช้าลง เพื่อให้คุณได้มีโอกาสกลับมาสำรวจและทำความรู้จักกับโลกภายในจิตใจของตนเองอีกครั้ง
@@ -83,11 +160,11 @@
     </div>
   </section>
 
-  <!-- Concept -->
+  <!-- ========== CONCEPT ========== -->
   <section id="concept" class="py-24 px-6 bg-white">
     <div class="max-w-5xl mx-auto">
       <div class="grid md:grid-cols-2 gap-16 items-center">
-        <div>
+        <div class="scroll-fade">
           <span class="inline-block bg-sage-muted text-sage-dark text-sm font-medium px-4 py-1.5 rounded-full mb-6">คอนเซปต์</span>
           <h2 class="text-3xl font-bold mb-6 leading-snug">"แก้วจอมแก่น"<br>ดวงจิตที่บริสุทธิ์ผ่องใส</h2>
           <p class="text-bark-light/70 leading-relaxed mb-6">
@@ -99,20 +176,21 @@
             เพื่อลบเลือนความวุ่นวายจากโลกภายนอก และชำระล้างจิตใจให้กลับมาใสสะอาดดุจแก้วประกาย
           </p>
         </div>
-        <div class="space-y-4">
+        <div class="space-y-4 scroll-fade">
           <div class="bg-sage-muted/50 rounded-2xl p-6">
-            <h3 class="font-semibold text-sage-dark mb-2">🎯 วัตถุประสงค์</h3>
-            <ul class="space-y-2 text-sm text-bark-light/70">
-              <li class="flex gap-2"><span class="text-sage shrink-0">•</span>ส่งเสริมการปฏิบัติธรรมตามหลักสติปัฏฐาน ๔</li>
-              <li class="flex gap-2"><span class="text-sage shrink-0">•</span>เป็นสถานที่พักพิงทางใจ บรรเทาความเครียดจากวิถีชีวิตสมัยใหม่</li>
-              <li class="flex gap-2"><span class="text-sage shrink-0">•</span>บ่มเพาะปัญญาและศีลธรรม เพื่อนำไปใช้ในชีวิตประจำวัน</li>
+            <h3 class="font-semibold text-sage-dark mb-3">วัตถุประสงค์</h3>
+            <ul class="space-y-2.5 text-sm text-bark-light/70">
+              <li class="flex gap-3"><span class="text-sage shrink-0 mt-0.5">&#9679;</span>ส่งเสริมการปฏิบัติธรรมตามหลักสติปัฏฐาน ๔ ให้เข้าถึงพุทธศาสนิกชนและผู้สนใจทั่วไป</li>
+              <li class="flex gap-3"><span class="text-sage shrink-0 mt-0.5">&#9679;</span>เป็นสถานที่พักพิงทางใจ บรรเทาความเครียดจากวิถีชีวิตในสังคมยุคปัจจุบัน</li>
+              <li class="flex gap-3"><span class="text-sage shrink-0 mt-0.5">&#9679;</span>บ่มเพาะปัญญาและศีลธรรม เพื่อนำหลักธรรมไปประยุกต์ใช้ในชีวิตประจำวัน</li>
             </ul>
           </div>
           <div class="bg-sage-muted/50 rounded-2xl p-6">
-            <h3 class="font-semibold text-sage-dark mb-2">🌳 ธรรมชาติและสภาพแวดล้อม</h3>
+            <h3 class="font-semibold text-sage-dark mb-3">ธรรมชาติและสภาพแวดล้อม</h3>
             <p class="text-sm text-bark-light/70 leading-relaxed">
               ตั้งอยู่ท่ามกลางธรรมชาติที่สมบูรณ์ โอบล้อมด้วยแมกไม้เขียวขจี มีลานธรรมใต้ร่มโพธิ์ใหญ่
               สระน้ำใสที่ให้ความรู้สึกเย็นสบาย และทางเดินจงกรมที่ทอดยาวไปตามแนวป่า
+              เสียงนกขานรับในยามเช้าและเสียงแมลงในยามค่ำคืน เป็นดั่งเสียงดนตรีจากธรรมชาติที่ช่วยกล่อมเกลาจิตใจ
             </p>
           </div>
         </div>
@@ -120,50 +198,53 @@
     </div>
   </section>
 
-  <!-- Courses -->
+  <!-- ========== COURSES ========== -->
   <section id="courses" class="py-24 px-6">
     <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16">
+      <div class="text-center mb-16 scroll-fade">
         <span class="inline-block bg-sage-muted text-sage-dark text-sm font-medium px-4 py-1.5 rounded-full mb-4">หลักสูตรปฏิบัติธรรม</span>
         <h2 class="text-3xl md:text-4xl font-bold">เหมาะสมกับผู้ปฏิบัติทุกระดับ</h2>
       </div>
       <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow border border-sage/10 group">
-          <div class="w-12 h-12 bg-sage-muted rounded-xl flex items-center justify-center mb-5 group-hover:bg-sage/20 transition-colors text-xl">🌱</div>
+        <!-- Course 1 -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow border border-sage/10 group scroll-fade">
+          <div class="w-12 h-12 bg-sage-muted rounded-xl flex items-center justify-center mb-5 group-hover:bg-sage/20 transition-colors text-2xl">&#127793;</div>
           <div class="text-xs text-sage-dark font-medium mb-2">๓ วัน ๒ คืน</div>
           <h3 class="text-lg font-bold mb-3">ปฐมบทแห่งความสงบ</h3>
           <p class="text-sm text-bark-light/60 leading-relaxed">เหมาะสำหรับผู้เริ่มต้น เน้นการปูพื้นฐานการทำสมาธิเบื้องต้น การเดินจงกรม และการเรียนรู้ธรรมะพื้นฐานอย่างง่าย</p>
-          <div class="mt-5 pt-4 border-t border-sage/10 text-xs text-sage-dark">สำหรับผู้เริ่มต้น</div>
+          <div class="mt-5 pt-4 border-t border-sage/10 text-xs text-sage-dark font-medium">สำหรับผู้เริ่มต้น</div>
         </div>
-        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow border-2 border-sage/30 group relative">
-          <div class="absolute -top-3 right-6 bg-sage text-white text-xs px-3 py-1 rounded-full">แนะนำ</div>
-          <div class="w-12 h-12 bg-sage-muted rounded-xl flex items-center justify-center mb-5 group-hover:bg-sage/20 transition-colors text-xl">💎</div>
+        <!-- Course 2 (recommended) -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow border-2 border-sage/30 group relative scroll-fade">
+          <div class="absolute -top-3 right-6 bg-sage text-white text-xs px-3 py-1 rounded-full font-medium">แนะนำ</div>
+          <div class="w-12 h-12 bg-sage-muted rounded-xl flex items-center justify-center mb-5 group-hover:bg-sage/20 transition-colors text-2xl">&#128142;</div>
           <div class="text-xs text-sage-dark font-medium mb-2">๗ วัน ๖ คืน</div>
           <h3 class="text-lg font-bold mb-3">ชำระจิต ค้นพบแก่น</h3>
           <p class="text-sm text-bark-light/60 leading-relaxed">หลักสูตรเข้มข้นสำหรับผู้ที่ต้องการเจริญวิปัสสนากรรมฐาน ปิดวาจา เพื่อพิจารณาดูความเกิดดับของรูปนามตามความเป็นจริง</p>
-          <div class="mt-5 pt-4 border-t border-sage/10 text-xs text-sage-dark">เข้มข้น • ปิดวาจา</div>
+          <div class="mt-5 pt-4 border-t border-sage/10 text-xs text-sage-dark font-medium">เข้มข้น &#183; ปิดวาจา</div>
         </div>
-        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow border border-sage/10 group">
-          <div class="w-12 h-12 bg-sage-muted rounded-xl flex items-center justify-center mb-5 group-hover:bg-sage/20 transition-colors text-xl">☀️</div>
+        <!-- Course 3 -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow border border-sage/10 group scroll-fade">
+          <div class="w-12 h-12 bg-sage-muted rounded-xl flex items-center justify-center mb-5 group-hover:bg-sage/20 transition-colors text-2xl">&#9728;&#65039;</div>
           <div class="text-xs text-sage-dark font-medium mb-2">เสาร์-อาทิตย์</div>
           <h3 class="text-lg font-bold mb-3">สุดสัปดาห์ ภาวนา</h3>
-          <p class="text-sm text-bark-light/60 leading-relaxed">สำหรับคนวัยทำงานที่มีเวลาน้อย แต่อยากเติมพลังใจและรีเซ็ตตัวเอง ก่อนกลับไปสู่วิถีชีวิตประจำวัน</p>
-          <div class="mt-5 pt-4 border-t border-sage/10 text-xs text-sage-dark">คนวัยทำงาน</div>
+          <p class="text-sm text-bark-light/60 leading-relaxed">สำหรับคนวัยทำงานที่มีเวลาน้อย แต่อยากเติมพลังใจและรีเซ็ตตัวเองก่อนกลับไปสู้วิถีชีวิตประจำวัน</p>
+          <div class="mt-5 pt-4 border-t border-sage/10 text-xs text-sage-dark font-medium">คนวัยทำงาน</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Teacher -->
+  <!-- ========== TEACHER ========== -->
   <section id="teacher" class="py-24 px-6 bg-white">
-    <div class="max-w-4xl mx-auto text-center">
+    <div class="max-w-4xl mx-auto text-center scroll-fade">
       <span class="inline-block bg-sage-muted text-sage-dark text-sm font-medium px-4 py-1.5 rounded-full mb-4">พระอาจารย์วิทยากร</span>
       <h2 class="text-3xl md:text-4xl font-bold mb-8">ภายใต้ความเมตตาและคำแนะนำอย่างใกล้ชิด</h2>
       <div class="bg-gradient-to-br from-sage-muted/40 to-sage-muted/80 rounded-3xl p-10 md:p-14 max-w-2xl mx-auto">
         <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-sm">
-          <span class="text-4xl">🙏</span>
+          <span class="text-4xl">&#128591;</span>
         </div>
-        <p class="text-bark-light/70 leading-relaxed text-lg">
+        <p class="text-bark-light/80 leading-relaxed text-lg">
           การปฏิบัติธรรมของท่านจะอยู่ภายใต้ความเมตตาและคำแนะนำอย่างใกล้ชิด
           จากพระวิปัสสนาจารย์ผู้ทรงคุณวุฒิและเปี่ยมด้วยประสบการณ์
         </p>
@@ -175,72 +256,74 @@
     </div>
   </section>
 
-  <!-- Schedule with real image -->
+  <!-- ========== SCHEDULE ========== -->
   <section id="schedule" class="py-24 px-6">
     <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16">
+      <div class="text-center mb-16 scroll-fade">
         <span class="inline-block bg-sage-muted text-sage-dark text-sm font-medium px-4 py-1.5 rounded-full mb-4">กิจวัตรประจำวัน</span>
         <h2 class="text-3xl md:text-4xl font-bold mb-4">เรียบง่าย เป็นระบบ มีสติในทุกอิริยาบถ</h2>
       </div>
       <div class="grid md:grid-cols-2 gap-12 items-start">
         <!-- Image -->
-        <div class="rounded-2xl overflow-hidden shadow-lg">
-          <img src="https://raw.githubusercontent.com/Purivaro/KMJ/main/images/LINE_ALBUM__260316_803_1_2.jpg" alt="กิจกรรมภายในศูนย์" class="w-full h-auto object-cover" />
+        <div class="rounded-2xl overflow-hidden shadow-lg scroll-fade">
+          <img src="https://raw.githubusercontent.com/Purivaro/KMJ/main/images/LINE_ALBUM__260316_803_1_2.jpg"
+               alt="กิจกรรมภายในศูนย์ปฏิบัติธรรม"
+               class="w-full h-auto object-cover" loading="lazy" />
         </div>
         <!-- Timeline -->
-        <div class="space-y-0">
+        <div class="space-y-0 scroll-fade">
           <div class="flex gap-4 group">
-            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">๐๔.๓๐</div>
+            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">&#3664;&#3668;.&#3667;&#3664;</div>
             <div class="border-l-2 border-sage/20 pl-5 pb-4 group-hover:border-sage transition-colors">
               <div class="bg-white rounded-xl p-3 shadow-sm text-sm"><span class="font-medium">ตื่นนอน</span> <span class="text-bark-light/50">ทำกิจส่วนตัว</span></div>
             </div>
           </div>
           <div class="flex gap-4 group">
-            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">๐๕.๐๐</div>
+            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">&#3664;&#3669;.&#3664;&#3664;</div>
             <div class="border-l-2 border-sage/20 pl-5 pb-4 group-hover:border-sage transition-colors">
               <div class="bg-sage-muted/50 rounded-xl p-3 text-sm"><span class="font-medium text-sage-dark">ทำวัตรเช้า</span> <span class="text-bark-light/50">สวดมนต์ / นั่งสมาธิ</span></div>
             </div>
           </div>
           <div class="flex gap-4 group">
-            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">๐๗.๐๐</div>
+            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">&#3664;&#3671;.&#3664;&#3664;</div>
             <div class="border-l-2 border-sage/20 pl-5 pb-4 group-hover:border-sage transition-colors">
               <div class="bg-white rounded-xl p-3 shadow-sm text-sm"><span class="font-medium">อาหารเช้า</span> <span class="text-bark-light/50">พิจารณาอาหาร</span></div>
             </div>
           </div>
           <div class="flex gap-4 group">
-            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">๐๘.๓๐</div>
+            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">&#3664;&#3672;.&#3667;&#3664;</div>
             <div class="border-l-2 border-sage/20 pl-5 pb-4 group-hover:border-sage transition-colors">
               <div class="bg-sage-muted/50 rounded-xl p-3 text-sm"><span class="font-medium text-sage-dark">ปฏิบัติธรรมช่วงเช้า</span> <span class="text-bark-light/50">เดินจงกรม / นั่งสมาธิ</span></div>
             </div>
           </div>
           <div class="flex gap-4 group">
-            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">๑๑.๓๐</div>
+            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">&#3665;&#3665;.&#3667;&#3664;</div>
             <div class="border-l-2 border-sage/20 pl-5 pb-4 group-hover:border-sage transition-colors">
               <div class="bg-white rounded-xl p-3 shadow-sm text-sm"><span class="font-medium">อาหารกลางวัน</span></div>
             </div>
           </div>
           <div class="flex gap-4 group">
-            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">๑๓.๓๐</div>
+            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">&#3665;&#3667;.&#3667;&#3664;</div>
             <div class="border-l-2 border-sage/20 pl-5 pb-4 group-hover:border-sage transition-colors">
               <div class="bg-sage-muted/50 rounded-xl p-3 text-sm"><span class="font-medium text-sage-dark">ปฏิบัติธรรมช่วงบ่าย</span></div>
             </div>
           </div>
           <div class="flex gap-4 group">
-            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">๑๖.๐๐</div>
+            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">&#3665;&#3670;.&#3664;&#3664;</div>
             <div class="border-l-2 border-sage/20 pl-5 pb-4 group-hover:border-sage transition-colors">
               <div class="bg-white rounded-xl p-3 shadow-sm text-sm"><span class="font-medium">บำเพ็ญประโยชน์</span> <span class="text-bark-light/50">เจริญสติในการทำงาน</span></div>
             </div>
           </div>
           <div class="flex gap-4 group">
-            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">๑๘.๐๐</div>
+            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">&#3665;&#3672;.&#3664;&#3664;</div>
             <div class="border-l-2 border-sage/20 pl-5 pb-4 group-hover:border-sage transition-colors">
               <div class="bg-sage-muted/50 rounded-xl p-3 text-sm"><span class="font-medium text-sage-dark">ทำวัตรเย็น / สนทนาธรรม</span></div>
             </div>
           </div>
           <div class="flex gap-4 group">
-            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">๒๑.๐๐</div>
+            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">&#3666;&#3665;.&#3664;&#3664;</div>
             <div class="border-l-2 border-sage/20 pl-5 pb-0">
-              <div class="bg-white rounded-xl p-3 shadow-sm text-sm"><span class="font-medium">พักผ่อน</span> 🌙</div>
+              <div class="bg-white rounded-xl p-3 shadow-sm text-sm"><span class="font-medium">พักผ่อน</span> <span class="text-bark-light/50">&#127769;</span></div>
             </div>
           </div>
         </div>
@@ -248,57 +331,59 @@
     </div>
   </section>
 
-  <!-- Facilities -->
+  <!-- ========== FACILITIES ========== -->
   <section id="facilities" class="py-24 px-6 bg-white">
     <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16">
+      <div class="text-center mb-16 scroll-fade">
         <span class="inline-block bg-sage-muted text-sage-dark text-sm font-medium px-4 py-1.5 rounded-full mb-4">สิ่งอำนวยความสะดวก</span>
         <h2 class="text-3xl md:text-4xl font-bold">เรียบง่าย แต่ใส่ใจทุกรายละเอียด</h2>
       </div>
       <div class="grid sm:grid-cols-2 gap-5">
-        <div class="bg-cream rounded-2xl p-7 flex gap-5 items-start hover:shadow-md transition-shadow">
-          <div class="w-12 h-12 bg-sage-muted rounded-xl flex items-center justify-center shrink-0 text-xl">🏠</div>
+        <div class="bg-cream rounded-2xl p-7 flex gap-5 items-start hover:shadow-md transition-shadow scroll-fade">
+          <div class="w-12 h-12 bg-sage-muted rounded-xl flex items-center justify-center shrink-0 text-xl">&#127968;</div>
           <div><h3 class="font-semibold mb-1">เรือนพักแยกชาย-หญิง</h3><p class="text-sm text-bark-light/60">สะอาด ปลอดภัย มีความเป็นส่วนตัว อากาศถ่ายเทสะดวก</p></div>
         </div>
-        <div class="bg-cream rounded-2xl p-7 flex gap-5 items-start hover:shadow-md transition-shadow">
-          <div class="w-12 h-12 bg-sage-muted rounded-xl flex items-center justify-center shrink-0 text-xl">🧘‍♀️</div>
+        <div class="bg-cream rounded-2xl p-7 flex gap-5 items-start hover:shadow-md transition-shadow scroll-fade">
+          <div class="w-12 h-12 bg-sage-muted rounded-xl flex items-center justify-center shrink-0 text-xl">&#129495;</div>
           <div><h3 class="font-semibold mb-1">ศาลาปฏิบัติธรรมรวม</h3><p class="text-sm text-bark-light/60">กว้างขวาง โปร่งสบาย รองรับผู้ปฏิบัติธรรมได้จำนวนมาก</p></div>
         </div>
-        <div class="bg-cream rounded-2xl p-7 flex gap-5 items-start hover:shadow-md transition-shadow">
-          <div class="w-12 h-12 bg-sage-muted rounded-xl flex items-center justify-center shrink-0 text-xl">🍜</div>
+        <div class="bg-cream rounded-2xl p-7 flex gap-5 items-start hover:shadow-md transition-shadow scroll-fade">
+          <div class="w-12 h-12 bg-sage-muted rounded-xl flex items-center justify-center shrink-0 text-xl">&#127836;</div>
           <div><h3 class="font-semibold mb-1">โรงทานอาหารสุขภาพ</h3><p class="text-sm text-bark-light/60">บริการอาหารมังสวิรัติที่สะอาด ถูกหลักโภชนาการ</p></div>
         </div>
-        <div class="bg-cream rounded-2xl p-7 flex gap-5 items-start hover:shadow-md transition-shadow">
-          <div class="w-12 h-12 bg-sage-muted rounded-xl flex items-center justify-center shrink-0 text-xl">📚</div>
+        <div class="bg-cream rounded-2xl p-7 flex gap-5 items-start hover:shadow-md transition-shadow scroll-fade">
+          <div class="w-12 h-12 bg-sage-muted rounded-xl flex items-center justify-center shrink-0 text-xl">&#128218;</div>
           <div><h3 class="font-semibold mb-1">มุมหนังสือธรรมะ</h3><p class="text-sm text-bark-light/60">พื้นที่เงียบสงบสำหรับการอ่านและศึกษาธรรมะเพิ่มเติม</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Benefits -->
+  <!-- ========== BENEFITS ========== -->
   <section class="py-24 px-6 bg-gradient-to-br from-sage-dark to-sage text-white">
     <div class="max-w-4xl mx-auto text-center">
-      <span class="inline-block bg-white/10 text-white text-sm font-medium px-4 py-1.5 rounded-full mb-6">สิ่งที่จะได้รับกลับไป</span>
-      <h2 class="text-3xl md:text-4xl font-bold mb-12">เปลี่ยนแปลงจากภายใน</h2>
+      <div class="scroll-fade">
+        <span class="inline-block bg-white/10 text-white text-sm font-medium px-4 py-1.5 rounded-full mb-6">สิ่งที่จะได้รับกลับไป</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-12">เปลี่ยนแปลงจากภายใน</h2>
+      </div>
       <div class="grid sm:grid-cols-2 gap-6 text-left">
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-7">
-          <span class="text-3xl block mb-3">🧠</span>
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-7 scroll-fade">
+          <span class="text-3xl block mb-3">&#129504;</span>
           <h3 class="font-semibold mb-2">จิตใจที่สงบและมีสติ</h3>
           <p class="text-white/70 text-sm leading-relaxed">มีภูมิคุ้มกันทางใจในการรับมือกับปัญหาและอารมณ์ต่างๆ ได้ดีขึ้น</p>
         </div>
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-7">
-          <span class="text-3xl block mb-3">👁️</span>
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-7 scroll-fade">
+          <span class="text-3xl block mb-3">&#128065;&#65039;</span>
           <h3 class="font-semibold mb-2">ความเข้าใจในชีวิต</h3>
           <p class="text-white/70 text-sm leading-relaxed">มองเห็นความจริงของธรรมชาติ เข้าใจหลักไตรลักษณ์ อนิจจัง ทุกขัง อนัตตา</p>
         </div>
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-7">
-          <span class="text-3xl block mb-3">🤝</span>
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-7 scroll-fade">
+          <span class="text-3xl block mb-3">&#129309;</span>
           <h3 class="font-semibold mb-2">กัลยาณมิตร</h3>
           <p class="text-white/70 text-sm leading-relaxed">ได้พบเจอเพื่อนร่วมทางธรรมที่มีความตั้งใจดีงาม</p>
         </div>
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-7">
-          <span class="text-3xl block mb-3">💚</span>
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-7 scroll-fade">
+          <span class="text-3xl block mb-3">&#128154;</span>
           <h3 class="font-semibold mb-2">สุขภาพกายและใจที่ดีขึ้น</h3>
           <p class="text-white/70 text-sm leading-relaxed">จากการทานอาหารที่มีประโยชน์ การพักผ่อนอย่างเป็นเวลา และจิตใจที่ปราศจากความเครียด</p>
         </div>
@@ -306,58 +391,81 @@
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- ========== FAQ ========== -->
   <section id="faq" class="py-24 px-6">
     <div class="max-w-3xl mx-auto">
-      <div class="text-center mb-16">
+      <div class="text-center mb-16 scroll-fade">
         <span class="inline-block bg-sage-muted text-sage-dark text-sm font-medium px-4 py-1.5 rounded-full mb-4">คำถามที่พบบ่อย</span>
         <h2 class="text-3xl md:text-4xl font-bold">FAQ</h2>
       </div>
       <div class="space-y-3">
-        <details class="bg-white rounded-2xl shadow-sm group" open>
-          <summary class="p-6 font-semibold cursor-pointer flex justify-between items-center hover:text-sage-dark transition-colors">ต้องเตรียมตัวอย่างไรก่อนมาปฏิบัติธรรม?<span class="w-8 h-8 bg-sage-muted rounded-full flex items-center justify-center text-sage-dark group-open:rotate-45 transition-transform shrink-0 ml-4">+</span></summary>
+        <details class="bg-white rounded-2xl shadow-sm group scroll-fade" open>
+          <summary class="p-6 font-semibold cursor-pointer flex justify-between items-center hover:text-sage-dark transition-colors">
+            ต้องเตรียมตัวอย่างไรก่อนมาปฏิบัติธรรม?
+            <span class="faq-icon w-8 h-8 bg-sage-muted rounded-full flex items-center justify-center text-sage-dark transition-transform shrink-0 ml-4 text-lg">+</span>
+          </summary>
           <div class="px-6 pb-6 text-bark-light/70 leading-relaxed -mt-2">เตรียมเสื้อผ้าสีขาว ของใช้ส่วนตัว และจิตใจที่พร้อม ทางศูนย์จัดเตรียมที่พักและอาหารให้</div>
         </details>
-        <details class="bg-white rounded-2xl shadow-sm group">
-          <summary class="p-6 font-semibold cursor-pointer flex justify-between items-center hover:text-sage-dark transition-colors">มีค่าใช้จ่ายหรือไม่?<span class="w-8 h-8 bg-sage-muted rounded-full flex items-center justify-center text-sage-dark group-open:rotate-45 transition-transform shrink-0 ml-4">+</span></summary>
+        <details class="bg-white rounded-2xl shadow-sm group scroll-fade">
+          <summary class="p-6 font-semibold cursor-pointer flex justify-between items-center hover:text-sage-dark transition-colors">
+            มีค่าใช้จ่ายหรือไม่?
+            <span class="faq-icon w-8 h-8 bg-sage-muted rounded-full flex items-center justify-center text-sage-dark transition-transform shrink-0 ml-4 text-lg">+</span>
+          </summary>
           <div class="px-6 pb-6 text-bark-light/70 leading-relaxed -mt-2">ไม่มีค่าใช้จ่าย ทางศูนย์ดำเนินการด้วยเงินบริจาค ผู้ปฏิบัติสามารถร่วมทำบุญตามศรัทธา</div>
         </details>
-        <details class="bg-white rounded-2xl shadow-sm group">
-          <summary class="p-6 font-semibold cursor-pointer flex justify-between items-center hover:text-sage-dark transition-colors">ผู้เริ่มต้นสามารถมาปฏิบัติได้หรือไม่?<span class="w-8 h-8 bg-sage-muted rounded-full flex items-center justify-center text-sage-dark group-open:rotate-45 transition-transform shrink-0 ml-4">+</span></summary>
+        <details class="bg-white rounded-2xl shadow-sm group scroll-fade">
+          <summary class="p-6 font-semibold cursor-pointer flex justify-between items-center hover:text-sage-dark transition-colors">
+            ผู้เริ่มต้นสามารถมาปฏิบัติได้หรือไม่?
+            <span class="faq-icon w-8 h-8 bg-sage-muted rounded-full flex items-center justify-center text-sage-dark transition-transform shrink-0 ml-4 text-lg">+</span>
+          </summary>
           <div class="px-6 pb-6 text-bark-light/70 leading-relaxed -mt-2">ได้แน่นอน ทางศูนย์มีหลักสูตรสำหรับผู้เริ่มต้นโดยเฉพาะ มีพระอาจารย์คอยแนะนำอย่างใกล้ชิด</div>
+        </details>
+        <details class="bg-white rounded-2xl shadow-sm group scroll-fade">
+          <summary class="p-6 font-semibold cursor-pointer flex justify-between items-center hover:text-sage-dark transition-colors">
+            สามารถเลือกหลักสูตรไหนได้บ้าง?
+            <span class="faq-icon w-8 h-8 bg-sage-muted rounded-full flex items-center justify-center text-sage-dark transition-transform shrink-0 ml-4 text-lg">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-bark-light/70 leading-relaxed -mt-2">มีหลักสูตร ๓ วัน ๒ คืน สำหรับผู้เริ่มต้น, หลักสูตร ๗ วัน ๖ คืน สำหรับผู้ต้องการปฏิบัติเข้มข้น และหลักสูตรเสาร์-อาทิตย์ สำหรับคนวัยทำงาน</div>
+        </details>
+        <details class="bg-white rounded-2xl shadow-sm group scroll-fade">
+          <summary class="p-6 font-semibold cursor-pointer flex justify-between items-center hover:text-sage-dark transition-colors">
+            ต้องจองล่วงหน้าหรือไม่?
+            <span class="faq-icon w-8 h-8 bg-sage-muted rounded-full flex items-center justify-center text-sage-dark transition-transform shrink-0 ml-4 text-lg">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-bark-light/70 leading-relaxed -mt-2">แนะนำให้ติดต่อจองล่วงหน้าผ่านทางโทรศัพท์หรือ Line เพื่อจัดเตรียมที่พักและอาหารให้เพียงพอ</div>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- ========== CONTACT ========== -->
   <section id="contact" class="py-24 px-6 bg-bark text-white">
     <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16">
+      <div class="text-center mb-16 scroll-fade">
         <span class="inline-block bg-white/10 text-sage-light text-sm font-medium px-4 py-1.5 rounded-full mb-4">ติดต่อเรา</span>
         <h2 class="text-3xl md:text-4xl font-bold">ศูนย์ปฏิบัติธรรมแก้วจอมแก่น</h2>
       </div>
       <div class="grid md:grid-cols-2 gap-12">
-        <div class="space-y-5">
+        <div class="space-y-5 scroll-fade">
           <div class="flex items-start gap-5 bg-white/5 rounded-2xl p-5 hover:bg-white/10 transition-colors">
-            <div class="w-11 h-11 bg-sage/20 rounded-xl flex items-center justify-center shrink-0">📍</div>
+            <div class="w-11 h-11 bg-sage/20 rounded-xl flex items-center justify-center shrink-0">&#128205;</div>
             <div><p class="font-medium mb-0.5">ที่อยู่</p><p class="text-white/60 text-sm">123</p></div>
           </div>
           <div class="flex items-start gap-5 bg-white/5 rounded-2xl p-5 hover:bg-white/10 transition-colors">
-            <div class="w-11 h-11 bg-sage/20 rounded-xl flex items-center justify-center shrink-0">📱</div>
-            <div><p class="font-medium mb-0.5">โทรศัพท์</p><p class="text-white/60 text-sm">083-540-6302</p></div>
+            <div class="w-11 h-11 bg-sage/20 rounded-xl flex items-center justify-center shrink-0">&#128241;</div>
+            <div><p class="font-medium mb-0.5">โทรศัพท์</p><p class="text-white/60 text-sm"><a href="tel:0835406302" class="hover:text-sage-light transition-colors">083-540-6302</a></p></div>
           </div>
           <div class="flex items-start gap-5 bg-white/5 rounded-2xl p-5 hover:bg-white/10 transition-colors">
-            <div class="w-11 h-11 bg-sage/20 rounded-xl flex items-center justify-center shrink-0">✉️</div>
-            <div><p class="font-medium mb-0.5">อีเมล</p><p class="text-white/60 text-sm">aun.puri@gmail.com</p></div>
+            <div class="w-11 h-11 bg-sage/20 rounded-xl flex items-center justify-center shrink-0">&#9993;&#65039;</div>
+            <div><p class="font-medium mb-0.5">อีเมล</p><p class="text-white/60 text-sm"><a href="mailto:aun.puri@gmail.com" class="hover:text-sage-light transition-colors">aun.puri@gmail.com</a></p></div>
           </div>
           <div class="flex items-start gap-5 bg-white/5 rounded-2xl p-5 hover:bg-white/10 transition-colors">
-            <div class="w-11 h-11 bg-sage/20 rounded-xl flex items-center justify-center shrink-0">💬</div>
+            <div class="w-11 h-11 bg-sage/20 rounded-xl flex items-center justify-center shrink-0">&#128172;</div>
             <div><p class="font-medium mb-0.5">Line ID</p><p class="text-white/60 text-sm">purivaro</p></div>
           </div>
         </div>
-        <div class="bg-gradient-to-br from-sage-dark/30 to-sage/20 rounded-3xl p-10 flex flex-col items-center justify-center text-center">
-          <span class="text-7xl mb-6">🪷</span>
+        <div class="bg-gradient-to-br from-sage-dark/30 to-sage/20 rounded-3xl p-10 flex flex-col items-center justify-center text-center scroll-fade">
+          <span class="text-7xl mb-6">&#129718;</span>
           <h3 class="text-2xl font-bold mb-3">มาร่วมปฏิบัติธรรม</h3>
           <p class="text-white/60 mb-6">เปิดรับผู้ปฏิบัติธรรมตลอดทั้งปี</p>
           <a href="tel:0835406302" class="bg-sage text-white font-semibold px-8 py-3 rounded-full hover:bg-sage-light transition-colors">โทรจองเลย</a>
@@ -366,10 +474,38 @@
     </div>
   </section>
 
+  <!-- ========== CAT SECTION (per user request) ========== -->
+  <section class="py-16 px-6 bg-cream">
+    <div class="max-w-md mx-auto text-center scroll-fade">
+      <div class="bg-white rounded-3xl p-8 shadow-sm border border-sage/10">
+        <img src="https://cataas.com/cat/cute" alt="น้องแมวประจำศูนย์"
+             class="w-full h-64 object-cover rounded-2xl mb-6" loading="lazy"
+             onerror="this.src='https://placecats.com/400/300'; this.onerror=null;" />
+        <p class="text-bark-light/60 text-sm leading-relaxed">
+          &#128049; น้องแมวประจำศูนย์ คอยต้อนรับผู้ปฏิบัติธรรมด้วยความอบอุ่น
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
   <footer class="bg-bark border-t border-white/5 py-8 text-center">
     <p class="text-white/30 text-sm">ศูนย์ปฏิบัติธรรมแก้วจอมแก่น &copy; 2026</p>
     <p class="text-white/15 text-xs mt-1">สร้างโดย Puri Agent</p>
   </footer>
+
+  <!-- ========== SCROLL ANIMATION ========== -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.scroll-fade').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
