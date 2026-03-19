@@ -18,7 +18,6 @@
             cream: '#FAFAF7',
             bark: '#3D3228',
             'bark-light': '#6B5D50',
-            warm: '#F5F2ED',
           }
         }
       }
@@ -28,30 +27,23 @@
     body { font-family: 'Noto Sans Thai', sans-serif; }
     html { scroll-behavior: smooth; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
     .fade-up { animation: fadeUp 0.9s ease-out forwards; opacity: 0; }
-    .fade-in { animation: fadeIn 1.2s ease-out forwards; opacity: 0; }
     .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.25s; } .d3 { animation-delay: 0.4s; } .d4 { animation-delay: 0.55s; }
-    .float { animation: float 4s ease-in-out infinite; }
   </style>
 </head>
 <body class="bg-cream text-bark">
 
-  <!-- Hero -->
+  <!-- Hero with real image -->
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-sage-dark via-sage to-cream"></div>
-    <div class="absolute inset-0 opacity-[0.03]" style="background-image:radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
-    <!-- Floating elements -->
-    <div class="absolute top-20 left-10 text-6xl opacity-10 float">🍃</div>
-    <div class="absolute bottom-32 right-16 text-5xl opacity-10 float" style="animation-delay:2s">🪷</div>
+    <img src="https://raw.githubusercontent.com/Purivaro/KMJ/main/images/og-image_1_1.jpg" alt="ศาลาปฏิบัติธรรม" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-cream"></div>
     <div class="relative z-10 text-center px-6 max-w-3xl">
       <p class="fade-up text-white/60 text-sm tracking-[0.35em] uppercase mb-6">The Pure Heart</p>
       <h1 class="fade-up d1 text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.2]">
         คืนความสงบ<br>สู่จิตใจ
       </h1>
-      <p class="fade-up d2 text-white/75 text-lg md:text-xl mb-4 font-light leading-relaxed max-w-xl mx-auto">
-        ค้นพบแก่นแท้แห่งชีวิต<br class="sm:hidden"> ท่ามกลางอ้อมกอดของธรรมชาติ
+      <p class="fade-up d2 text-white/80 text-lg md:text-xl mb-4 font-light leading-relaxed max-w-xl mx-auto">
+        ค้นพบแก่นแท้แห่งชีวิต ท่ามกลางอ้อมกอดของธรรมชาติ
       </p>
       <p class="fade-up d3 text-white/50 text-sm mb-10 max-w-lg mx-auto leading-relaxed">
         ศูนย์ปฏิบัติธรรมแก้วจอมแก่น — สถานที่ซึ่งเวลาเดินช้าลง เพื่อให้คุณได้กลับมาสำรวจโลกภายในจิตใจอีกครั้ง
@@ -140,10 +132,7 @@
           <div class="w-12 h-12 bg-sage-muted rounded-xl flex items-center justify-center mb-5 group-hover:bg-sage/20 transition-colors text-xl">🌱</div>
           <div class="text-xs text-sage-dark font-medium mb-2">๓ วัน ๒ คืน</div>
           <h3 class="text-lg font-bold mb-3">ปฐมบทแห่งความสงบ</h3>
-          <p class="text-sm text-bark-light/60 leading-relaxed">
-            เหมาะสำหรับผู้เริ่มต้น เน้นการปูพื้นฐานการทำสมาธิเบื้องต้น การเดินจงกรม
-            และการเรียนรู้ธรรมะพื้นฐานอย่างง่าย
-          </p>
+          <p class="text-sm text-bark-light/60 leading-relaxed">เหมาะสำหรับผู้เริ่มต้น เน้นการปูพื้นฐานการทำสมาธิเบื้องต้น การเดินจงกรม และการเรียนรู้ธรรมะพื้นฐานอย่างง่าย</p>
           <div class="mt-5 pt-4 border-t border-sage/10 text-xs text-sage-dark">สำหรับผู้เริ่มต้น</div>
         </div>
         <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow border-2 border-sage/30 group relative">
@@ -151,20 +140,14 @@
           <div class="w-12 h-12 bg-sage-muted rounded-xl flex items-center justify-center mb-5 group-hover:bg-sage/20 transition-colors text-xl">💎</div>
           <div class="text-xs text-sage-dark font-medium mb-2">๗ วัน ๖ คืน</div>
           <h3 class="text-lg font-bold mb-3">ชำระจิต ค้นพบแก่น</h3>
-          <p class="text-sm text-bark-light/60 leading-relaxed">
-            หลักสูตรเข้มข้นสำหรับผู้ที่ต้องการเจริญวิปัสสนากรรมฐาน ปิดวาจา
-            เพื่อพิจารณาดูความเกิดดับของรูปนามตามความเป็นจริง
-          </p>
+          <p class="text-sm text-bark-light/60 leading-relaxed">หลักสูตรเข้มข้นสำหรับผู้ที่ต้องการเจริญวิปัสสนากรรมฐาน ปิดวาจา เพื่อพิจารณาดูความเกิดดับของรูปนามตามความเป็นจริง</p>
           <div class="mt-5 pt-4 border-t border-sage/10 text-xs text-sage-dark">เข้มข้น • ปิดวาจา</div>
         </div>
         <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow border border-sage/10 group">
           <div class="w-12 h-12 bg-sage-muted rounded-xl flex items-center justify-center mb-5 group-hover:bg-sage/20 transition-colors text-xl">☀️</div>
           <div class="text-xs text-sage-dark font-medium mb-2">เสาร์-อาทิตย์</div>
           <h3 class="text-lg font-bold mb-3">สุดสัปดาห์ ภาวนา</h3>
-          <p class="text-sm text-bark-light/60 leading-relaxed">
-            สำหรับคนวัยทำงานที่มีเวลาน้อย แต่อยากเติมพลังใจและรีเซ็ตตัวเอง
-            ก่อนกลับไปสู่วิถีชีวิตประจำวัน
-          </p>
+          <p class="text-sm text-bark-light/60 leading-relaxed">สำหรับคนวัยทำงานที่มีเวลาน้อย แต่อยากเติมพลังใจและรีเซ็ตตัวเอง ก่อนกลับไปสู่วิถีชีวิตประจำวัน</p>
           <div class="mt-5 pt-4 border-t border-sage/10 text-xs text-sage-dark">คนวัยทำงาน</div>
         </div>
       </div>
@@ -175,7 +158,7 @@
   <section id="teacher" class="py-24 px-6 bg-white">
     <div class="max-w-4xl mx-auto text-center">
       <span class="inline-block bg-sage-muted text-sage-dark text-sm font-medium px-4 py-1.5 rounded-full mb-4">พระอาจารย์วิทยากร</span>
-      <h2 class="text-3xl md:text-4xl font-bold mb-8">ภายใต้ความเมตตาและคำแนะนำ<br>อย่างใกล้ชิด</h2>
+      <h2 class="text-3xl md:text-4xl font-bold mb-8">ภายใต้ความเมตตาและคำแนะนำอย่างใกล้ชิด</h2>
       <div class="bg-gradient-to-br from-sage-muted/40 to-sage-muted/80 rounded-3xl p-10 md:p-14 max-w-2xl mx-auto">
         <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-sm">
           <span class="text-4xl">🙏</span>
@@ -192,66 +175,73 @@
     </div>
   </section>
 
-  <!-- Daily Schedule -->
+  <!-- Schedule with real image -->
   <section id="schedule" class="py-24 px-6">
-    <div class="max-w-3xl mx-auto">
+    <div class="max-w-5xl mx-auto">
       <div class="text-center mb-16">
         <span class="inline-block bg-sage-muted text-sage-dark text-sm font-medium px-4 py-1.5 rounded-full mb-4">กิจวัตรประจำวัน</span>
         <h2 class="text-3xl md:text-4xl font-bold mb-4">เรียบง่าย เป็นระบบ มีสติในทุกอิริยาบถ</h2>
       </div>
-      <div class="space-y-0">
-        <div class="flex gap-6 group">
-          <div class="text-right w-20 shrink-0 text-sm font-medium text-sage-dark pt-4">๐๔.๓๐</div>
-          <div class="border-l-2 border-sage/20 pl-6 pb-6 group-hover:border-sage transition-colors">
-            <div class="bg-white rounded-xl p-4 shadow-sm"><span class="font-medium">ตื่นนอน</span> <span class="text-bark-light/50">ทำกิจส่วนตัว</span></div>
-          </div>
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <!-- Image -->
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+          <img src="https://raw.githubusercontent.com/Purivaro/KMJ/main/images/LINE_ALBUM__260316_803_1_2.jpg" alt="กิจกรรมภายในศูนย์" class="w-full h-auto object-cover" />
         </div>
-        <div class="flex gap-6 group">
-          <div class="text-right w-20 shrink-0 text-sm font-medium text-sage-dark pt-4">๐๕.๐๐</div>
-          <div class="border-l-2 border-sage/20 pl-6 pb-6 group-hover:border-sage transition-colors">
-            <div class="bg-white rounded-xl p-4 shadow-sm"><span class="font-medium">ทำวัตรเช้า</span> <span class="text-bark-light/50">สวดมนต์ / นั่งสมาธิ</span></div>
+        <!-- Timeline -->
+        <div class="space-y-0">
+          <div class="flex gap-4 group">
+            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">๐๔.๓๐</div>
+            <div class="border-l-2 border-sage/20 pl-5 pb-4 group-hover:border-sage transition-colors">
+              <div class="bg-white rounded-xl p-3 shadow-sm text-sm"><span class="font-medium">ตื่นนอน</span> <span class="text-bark-light/50">ทำกิจส่วนตัว</span></div>
+            </div>
           </div>
-        </div>
-        <div class="flex gap-6 group">
-          <div class="text-right w-20 shrink-0 text-sm font-medium text-sage-dark pt-4">๐๗.๐๐</div>
-          <div class="border-l-2 border-sage/20 pl-6 pb-6 group-hover:border-sage transition-colors">
-            <div class="bg-white rounded-xl p-4 shadow-sm"><span class="font-medium">อาหารเช้า</span> <span class="text-bark-light/50">พิจารณาอาหาร</span></div>
+          <div class="flex gap-4 group">
+            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">๐๕.๐๐</div>
+            <div class="border-l-2 border-sage/20 pl-5 pb-4 group-hover:border-sage transition-colors">
+              <div class="bg-sage-muted/50 rounded-xl p-3 text-sm"><span class="font-medium text-sage-dark">ทำวัตรเช้า</span> <span class="text-bark-light/50">สวดมนต์ / นั่งสมาธิ</span></div>
+            </div>
           </div>
-        </div>
-        <div class="flex gap-6 group">
-          <div class="text-right w-20 shrink-0 text-sm font-medium text-sage-dark pt-4">๐๘.๓๐</div>
-          <div class="border-l-2 border-sage/20 pl-6 pb-6 group-hover:border-sage transition-colors">
-            <div class="bg-sage-muted/50 rounded-xl p-4"><span class="font-medium text-sage-dark">ฟังธรรมบรรยาย / ปฏิบัติธรรมช่วงเช้า</span> <span class="text-bark-light/50">เดินจงกรมสลับนั่งสมาธิ</span></div>
+          <div class="flex gap-4 group">
+            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">๐๗.๐๐</div>
+            <div class="border-l-2 border-sage/20 pl-5 pb-4 group-hover:border-sage transition-colors">
+              <div class="bg-white rounded-xl p-3 shadow-sm text-sm"><span class="font-medium">อาหารเช้า</span> <span class="text-bark-light/50">พิจารณาอาหาร</span></div>
+            </div>
           </div>
-        </div>
-        <div class="flex gap-6 group">
-          <div class="text-right w-20 shrink-0 text-sm font-medium text-sage-dark pt-4">๑๑.๓๐</div>
-          <div class="border-l-2 border-sage/20 pl-6 pb-6 group-hover:border-sage transition-colors">
-            <div class="bg-white rounded-xl p-4 shadow-sm"><span class="font-medium">อาหารกลางวัน</span></div>
+          <div class="flex gap-4 group">
+            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">๐๘.๓๐</div>
+            <div class="border-l-2 border-sage/20 pl-5 pb-4 group-hover:border-sage transition-colors">
+              <div class="bg-sage-muted/50 rounded-xl p-3 text-sm"><span class="font-medium text-sage-dark">ปฏิบัติธรรมช่วงเช้า</span> <span class="text-bark-light/50">เดินจงกรม / นั่งสมาธิ</span></div>
+            </div>
           </div>
-        </div>
-        <div class="flex gap-6 group">
-          <div class="text-right w-20 shrink-0 text-sm font-medium text-sage-dark pt-4">๑๓.๓๐</div>
-          <div class="border-l-2 border-sage/20 pl-6 pb-6 group-hover:border-sage transition-colors">
-            <div class="bg-sage-muted/50 rounded-xl p-4"><span class="font-medium text-sage-dark">ปฏิบัติธรรมช่วงบ่าย</span></div>
+          <div class="flex gap-4 group">
+            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">๑๑.๓๐</div>
+            <div class="border-l-2 border-sage/20 pl-5 pb-4 group-hover:border-sage transition-colors">
+              <div class="bg-white rounded-xl p-3 shadow-sm text-sm"><span class="font-medium">อาหารกลางวัน</span></div>
+            </div>
           </div>
-        </div>
-        <div class="flex gap-6 group">
-          <div class="text-right w-20 shrink-0 text-sm font-medium text-sage-dark pt-4">๑๖.๐๐</div>
-          <div class="border-l-2 border-sage/20 pl-6 pb-6 group-hover:border-sage transition-colors">
-            <div class="bg-white rounded-xl p-4 shadow-sm"><span class="font-medium">บำเพ็ญประโยชน์</span> <span class="text-bark-light/50">เจริญสติในการทำงาน</span></div>
+          <div class="flex gap-4 group">
+            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">๑๓.๓๐</div>
+            <div class="border-l-2 border-sage/20 pl-5 pb-4 group-hover:border-sage transition-colors">
+              <div class="bg-sage-muted/50 rounded-xl p-3 text-sm"><span class="font-medium text-sage-dark">ปฏิบัติธรรมช่วงบ่าย</span></div>
+            </div>
           </div>
-        </div>
-        <div class="flex gap-6 group">
-          <div class="text-right w-20 shrink-0 text-sm font-medium text-sage-dark pt-4">๑๘.๐๐</div>
-          <div class="border-l-2 border-sage/20 pl-6 pb-6 group-hover:border-sage transition-colors">
-            <div class="bg-sage-muted/50 rounded-xl p-4"><span class="font-medium text-sage-dark">ทำวัตรเย็น / นั่งสมาธิ / สนทนาธรรม</span></div>
+          <div class="flex gap-4 group">
+            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">๑๖.๐๐</div>
+            <div class="border-l-2 border-sage/20 pl-5 pb-4 group-hover:border-sage transition-colors">
+              <div class="bg-white rounded-xl p-3 shadow-sm text-sm"><span class="font-medium">บำเพ็ญประโยชน์</span> <span class="text-bark-light/50">เจริญสติในการทำงาน</span></div>
+            </div>
           </div>
-        </div>
-        <div class="flex gap-6 group">
-          <div class="text-right w-20 shrink-0 text-sm font-medium text-sage-dark pt-4">๒๑.๐๐</div>
-          <div class="border-l-2 border-sage/20 pl-6 pb-0">
-            <div class="bg-white rounded-xl p-4 shadow-sm"><span class="font-medium">พักผ่อน</span> 🌙</div>
+          <div class="flex gap-4 group">
+            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">๑๘.๐๐</div>
+            <div class="border-l-2 border-sage/20 pl-5 pb-4 group-hover:border-sage transition-colors">
+              <div class="bg-sage-muted/50 rounded-xl p-3 text-sm"><span class="font-medium text-sage-dark">ทำวัตรเย็น / สนทนาธรรม</span></div>
+            </div>
+          </div>
+          <div class="flex gap-4 group">
+            <div class="text-right w-16 shrink-0 text-sm font-medium text-sage-dark pt-3">๒๑.๐๐</div>
+            <div class="border-l-2 border-sage/20 pl-5 pb-0">
+              <div class="bg-white rounded-xl p-3 shadow-sm text-sm"><span class="font-medium">พักผ่อน</span> 🌙</div>
+            </div>
           </div>
         </div>
       </div>
@@ -325,31 +315,15 @@
       </div>
       <div class="space-y-3">
         <details class="bg-white rounded-2xl shadow-sm group" open>
-          <summary class="p-6 font-semibold cursor-pointer flex justify-between items-center hover:text-sage-dark transition-colors">
-            ต้องเตรียมตัวอย่างไรก่อนมาปฏิบัติธรรม?
-            <span class="w-8 h-8 bg-sage-muted rounded-full flex items-center justify-center text-sage-dark group-open:rotate-45 transition-transform shrink-0 ml-4">+</span>
-          </summary>
+          <summary class="p-6 font-semibold cursor-pointer flex justify-between items-center hover:text-sage-dark transition-colors">ต้องเตรียมตัวอย่างไรก่อนมาปฏิบัติธรรม?<span class="w-8 h-8 bg-sage-muted rounded-full flex items-center justify-center text-sage-dark group-open:rotate-45 transition-transform shrink-0 ml-4">+</span></summary>
           <div class="px-6 pb-6 text-bark-light/70 leading-relaxed -mt-2">เตรียมเสื้อผ้าสีขาว ของใช้ส่วนตัว และจิตใจที่พร้อม ทางศูนย์จัดเตรียมที่พักและอาหารให้</div>
         </details>
         <details class="bg-white rounded-2xl shadow-sm group">
-          <summary class="p-6 font-semibold cursor-pointer flex justify-between items-center hover:text-sage-dark transition-colors">
-            มีค่าใช้จ่ายหรือไม่?
-            <span class="w-8 h-8 bg-sage-muted rounded-full flex items-center justify-center text-sage-dark group-open:rotate-45 transition-transform shrink-0 ml-4">+</span>
-          </summary>
+          <summary class="p-6 font-semibold cursor-pointer flex justify-between items-center hover:text-sage-dark transition-colors">มีค่าใช้จ่ายหรือไม่?<span class="w-8 h-8 bg-sage-muted rounded-full flex items-center justify-center text-sage-dark group-open:rotate-45 transition-transform shrink-0 ml-4">+</span></summary>
           <div class="px-6 pb-6 text-bark-light/70 leading-relaxed -mt-2">ไม่มีค่าใช้จ่าย ทางศูนย์ดำเนินการด้วยเงินบริจาค ผู้ปฏิบัติสามารถร่วมทำบุญตามศรัทธา</div>
         </details>
         <details class="bg-white rounded-2xl shadow-sm group">
-          <summary class="p-6 font-semibold cursor-pointer flex justify-between items-center hover:text-sage-dark transition-colors">
-            รับผู้ปฏิบัติธรรมครั้งละกี่คน?
-            <span class="w-8 h-8 bg-sage-muted rounded-full flex items-center justify-center text-sage-dark group-open:rotate-45 transition-transform shrink-0 ml-4">+</span>
-          </summary>
-          <div class="px-6 pb-6 text-bark-light/70 leading-relaxed -mt-2">รับได้ประมาณ 30-50 คนต่อรอบ กรุณาติดต่อสอบถามล่วงหน้า</div>
-        </details>
-        <details class="bg-white rounded-2xl shadow-sm group">
-          <summary class="p-6 font-semibold cursor-pointer flex justify-between items-center hover:text-sage-dark transition-colors">
-            ผู้เริ่มต้นสามารถมาปฏิบัติได้หรือไม่?
-            <span class="w-8 h-8 bg-sage-muted rounded-full flex items-center justify-center text-sage-dark group-open:rotate-45 transition-transform shrink-0 ml-4">+</span>
-          </summary>
+          <summary class="p-6 font-semibold cursor-pointer flex justify-between items-center hover:text-sage-dark transition-colors">ผู้เริ่มต้นสามารถมาปฏิบัติได้หรือไม่?<span class="w-8 h-8 bg-sage-muted rounded-full flex items-center justify-center text-sage-dark group-open:rotate-45 transition-transform shrink-0 ml-4">+</span></summary>
           <div class="px-6 pb-6 text-bark-light/70 leading-relaxed -mt-2">ได้แน่นอน ทางศูนย์มีหลักสูตรสำหรับผู้เริ่มต้นโดยเฉพาะ มีพระอาจารย์คอยแนะนำอย่างใกล้ชิด</div>
         </details>
       </div>
@@ -392,7 +366,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="bg-bark border-t border-white/5 py-8 text-center">
     <p class="text-white/30 text-sm">ศูนย์ปฏิบัติธรรมแก้วจอมแก่น &copy; 2026</p>
     <p class="text-white/15 text-xs mt-1">สร้างโดย Puri Agent</p>
